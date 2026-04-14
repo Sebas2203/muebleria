@@ -1,25 +1,27 @@
 import React, { useState, useEffect } from "react";
 import "./Home.css";
 
+//imagenes
+import sillas from "../assets/images/sillas.jpg";
+import mesita from "../assets/images/mesita.jpg";
+import cama from "../assets/images/cama.jpg";
+
 const heroSlides = [
   {
     id: 1,
-    image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1600&q=80",
+    image: sillas,
     headline: "ARQUITECTURA EN CADA MUEBLE",
     subline: "DONDE EL DISEÑO SE CONVIERTE EN PIEZA.",
   },
   {
     id: 2,
-    image:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80",
+    image: mesita,
     headline: "PIEZAS QUE TRANSFORMAN",
     subline: "ESPACIOS CON CARÁCTER Y PRECISIÓN.",
   },
   {
     id: 3,
-    image:
-      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1600&q=80",
+    image: cama,
     headline: "DISEÑO SIN COMPROMISO",
     subline: "CADA DETALLE TIENE UN PROPÓSITO.",
   },
@@ -29,32 +31,27 @@ const products = [
   {
     id: 1,
     name: "SOFÁ DE DISEÑO PERSONALIZADO",
-    image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80",
+    image: null,
   },
   {
     id: 2,
     name: "SOFÁ SECCIONAL MINIMALISTA",
-    image:
-      "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&q=80",
+    image: null,
   },
   {
     id: 3,
     name: "SOFÁ MODULAR CONTEMPORÁNEO",
-    image:
-      "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=600&q=80",
+    image: null,
   },
   {
     id: 4,
     name: "PIEZA CENTRAL PARA SALA",
-    image:
-      "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&q=80",
+    image: null,
   },
   {
     id: 5,
     name: "SILLÓN LOUNGE ARTESANAL",
-    image:
-      "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=600&q=80",
+    image: null,
   },
 ];
 
