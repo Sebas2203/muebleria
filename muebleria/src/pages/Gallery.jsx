@@ -1,6 +1,15 @@
 import React, { useState } from "react";
 import "./Gallery.css";
 
+/*
+  projects:
+    lista de proyectos a mostrar en la galería.
+
+  Cada uno tiene:
+    - nombre
+    - categoría
+    - imagen
+*/
 const projects = [
   {
     id: 1,
@@ -13,60 +22,53 @@ const projects = [
     id: 2,
     name: "COMEDOR MINIMALISTA",
     category: "COMEDOR",
-    image:
-      "https://images.unsplash.com/photo-1617104678098-de229db51175?w=800&q=80",
+    image: null,
   },
   {
     id: 3,
     name: "DORMITORIO SERENO",
     category: "DORMITORIO",
-    image:
-      "https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=80",
+    image: null,
   },
   {
     id: 4,
     name: "ESTUDIO MODERNO",
     category: "ESTUDIO",
-    image:
-      "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80",
+    image: null,
   },
   {
     id: 5,
     name: "SALA DE LECTURA",
     category: "SALA",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
+    image: null,
   },
   {
     id: 6,
     name: "TERRAZA EXTERIOR",
     category: "EXTERIOR",
-    image:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&q=80",
+    image: null,
   },
   {
     id: 7,
     name: "SALA INDUSTRIAL",
     category: "SALA",
-    image:
-      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80",
+    image: null,
   },
   {
     id: 8,
     name: "COMEDOR FAMILIAR",
     category: "COMEDOR",
-    image:
-      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=800&q=80",
+    image: null,
   },
   {
     id: 9,
     name: "DORMITORIO SUITE",
     category: "DORMITORIO",
-    image:
-      "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80",
+    image: null,
   },
 ];
 
+//categorias, opciones de filtro para la galeria
 const categories = [
   "TODOS",
   "SALA",
@@ -77,20 +79,40 @@ const categories = [
 ];
 
 export default function Gallery() {
+  // active: categoría actualmente seleccionada
+  // lightbox: proyecto seleccionado (para mostrar en vista ampliada) si es null → lightbox cerrado
+
   const [active, setActive] = useState("TODOS");
   const [lightbox, setLightbox] = useState(null);
 
+  /*
+    filtered:
+    lista de proyectos filtrada por categoría
+      - si es "TODOS", muestra todo
+      - si no, filtra por categoría
+  */
   const filtered =
     active === "TODOS"
       ? projects
       : projects.filter((p) => p.category === active);
 
+  /*
+    currentIndex: posición del proyecto actual dentro de la lista filtrada (se usa para navegación en el lightbox)
+  */
   const currentIndex =
     lightbox !== null ? filtered.findIndex((p) => p.id === lightbox.id) : -1;
 
+  // Abrir y cerrar lightbox
   const openLightbox = (project) => setLightbox(project);
   const closeLightbox = () => setLightbox(null);
 
+  /*
+    Navegación del lightbox:
+      - goPrev: va al anterior
+      - goNext: va al siguiente
+
+    stopPropagation evita que el click cierre el lightbox
+  */
   const goPrev = (e) => {
     e.stopPropagation();
     if (currentIndex > 0) setLightbox(filtered[currentIndex - 1]);
@@ -102,6 +124,12 @@ export default function Gallery() {
       setLightbox(filtered[currentIndex + 1]);
   };
 
+  /*
+    Control con teclado:
+      - ← anterior
+      - → siguiente
+      - ESC cerrar
+  */
   const handleKeyDown = (e) => {
     if (!lightbox) return;
     if (e.key === "ArrowLeft") goPrev(e);
@@ -110,19 +138,24 @@ export default function Gallery() {
   };
 
   return (
+    /*
+      tabIndex={-1} permite que el contenedor reciba eventos de teclado
+    */
     <main className="gallery" onKeyDown={handleKeyDown} tabIndex={-1}>
-      {/* Hero */}
+      {/* ================= HERO ================= */}
       <section className="gallery-hero">
         <p className="gallery-hero__label">PROYECTOS</p>
         <h1 className="gallery-hero__title">GALERÍA DE DISEÑOS</h1>
       </section>
 
-      {/* Filtros */}
+      {/* ================= FILTROS ================= */}
       <div className="gallery-filters">
         {categories.map((cat) => (
           <button
             key={cat}
-            className={`gallery-filter ${active === cat ? "gallery-filter--active" : ""}`}
+            className={`gallery-filter ${
+              active === cat ? "gallery-filter--active" : ""
+            }`}
             onClick={() => setActive(cat)}
           >
             {cat}
@@ -130,7 +163,7 @@ export default function Gallery() {
         ))}
       </div>
 
-      {/* Grid */}
+      {/* ================= GRID ================= */}
       <section className="gallery-grid">
         {filtered.map((project) => (
           <div
@@ -143,6 +176,7 @@ export default function Gallery() {
               alt={project.name}
               className="gallery-item__img"
             />
+
             <div className="gallery-item__overlay">
               <p className="gallery-item__category">{project.category}</p>
               <p className="gallery-item__name">{project.name}</p>
@@ -151,13 +185,15 @@ export default function Gallery() {
         ))}
       </section>
 
-      {/* Lightbox */}
+      {/* ================= LIGHTBOX ================= */}
       {lightbox && (
         <div className="lightbox" onClick={closeLightbox}>
+          {/* botón cerrar */}
           <button className="lightbox__close" onClick={closeLightbox}>
             ✕
           </button>
 
+          {/* flecha izquierda */}
           {currentIndex > 0 && (
             <button
               className="lightbox__arrow lightbox__arrow--prev"
@@ -167,6 +203,7 @@ export default function Gallery() {
             </button>
           )}
 
+          {/* contenido principal */}
           <div
             className="lightbox__content"
             onClick={(e) => e.stopPropagation()}
@@ -176,6 +213,7 @@ export default function Gallery() {
               alt={lightbox.name}
               className="lightbox__img"
             />
+
             <div className="lightbox__info">
               <p className="lightbox__category">{lightbox.category}</p>
               <p className="lightbox__name">{lightbox.name}</p>
@@ -185,6 +223,7 @@ export default function Gallery() {
             </div>
           </div>
 
+          {/* flecha derecha */}
           {currentIndex < filtered.length - 1 && (
             <button
               className="lightbox__arrow lightbox__arrow--next"
