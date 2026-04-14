@@ -8,7 +8,7 @@ import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 
 //componentes
-import Navbar from "./components/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
