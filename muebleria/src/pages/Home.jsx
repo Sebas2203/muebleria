@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Home.css";
 
 //imagenes que se van a usar en el hero
-import sillas from "../assets/images/sillas.jpg";
-import mesita from "../assets/images/mesita.jpg";
-import cama from "../assets/images/cama.jpg";
+import heroSillas from "../assets/images/heroSlides/sillas.jpg";
+import heroMesa from "../assets/images/heroSlides/mesita.jpg";
+import heroCama from "../assets/images/heroSlides/cama.jpg";
+
+//imagenes que se van a usar en el carrusel de productos destacados
+import productoMesa from "../assets/images/products/mesa.jpg";
+import productoSofas from "../assets/images/products/sofas.jpg";
+import productoMesaRectangular from "../assets/images/products/mesaRectangular.jpg";
+import productoSillaPiscina from "../assets/images/products/sillaPiscina.jpg";
+import productoPuerta from "../assets/images/products/puerta.jpg";
 
 /*
   heroSlides:
@@ -14,19 +22,19 @@ import cama from "../assets/images/cama.jpg";
 const heroSlides = [
   {
     id: 1,
-    image: sillas,
+    image: heroSillas,
     headline: "ARQUITECTURA EN CADA MUEBLE",
     subline: "DONDE EL DISEÑO SE CONVIERTE EN PIEZA.",
   },
   {
     id: 2,
-    image: mesita,
+    image: heroMesa,
     headline: "PIEZAS QUE TRANSFORMAN",
     subline: "ESPACIOS CON CARÁCTER Y PRECISIÓN.",
   },
   {
     id: 3,
-    image: cama,
+    image: heroCama,
     headline: "DISEÑO SIN COMPROMISO",
     subline: "CADA DETALLE TIENE UN PROPÓSITO.",
   },
@@ -40,27 +48,27 @@ const products = [
   {
     id: 1,
     name: "SOFÁ DE DISEÑO PERSONALIZADO",
-    image: null,
+    image: productoMesa,
   },
   {
     id: 2,
     name: "SOFÁ SECCIONAL MINIMALISTA",
-    image: null,
+    image: productoSofas,
   },
   {
     id: 3,
     name: "SOFÁ MODULAR CONTEMPORÁNEO",
-    image: null,
+    image: productoMesaRectangular,
   },
   {
     id: 4,
     name: "PIEZA CENTRAL PARA SALA",
-    image: null,
+    image: productoSillaPiscina,
   },
   {
     id: 5,
     name: "SILLÓN LOUNGE ARTESANAL",
-    image: null,
+    image: productoPuerta,
   },
 ];
 
@@ -134,7 +142,13 @@ export default function Home() {
         <div className="hero__content">
           <p className="hero__headline">{heroSlides[currentSlide].headline}</p>
           <p className="hero__subline">{heroSlides[currentSlide].subline}</p>
-          <button className="hero__cta">COMENZAR PROYECTO</button>
+          {/*<button className="hero__cta">COMENZAR PROYECTO</button>*/}
+          <Link
+            to="/gallery"
+            className={`hero__cta ${location.pathname === "/gallery" ? "navbar__link--active" : ""}`}
+          >
+            NUESTROS PROYECTOS
+          </Link>
         </div>
 
         {/*
