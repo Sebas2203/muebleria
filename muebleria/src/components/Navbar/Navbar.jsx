@@ -52,7 +52,7 @@ function Navbar() {
 
     <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <Link to="/" className="navbar__brand">
-        ADUO MOBILIARIO
+        Creativos muebles Furniture
       </Link>
       <ul className="navbar__links">
         <li>
