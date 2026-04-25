@@ -30,6 +30,7 @@
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
+  z-index: 101;
 }
 
 .navbar__links {
@@ -76,20 +77,66 @@
   color: #ffffff;
 }
 
+/* BOTÓN HAMBURGUESA */
+
+.navbar__toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 101;
+  padding: 0;
+}
+
+.navbar__toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: #ffffff;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+/* MOBILE */
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1.25rem 1.5rem;
   }
 
   .navbar__brand {
-    font-size: 1rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+  }
+
+  .navbar__toggle {
+    display: block;
   }
 
   .navbar__links {
-    gap: 1.5rem;
+    display: none;
+  }
+
+  .navbar__links--open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    background: rgba(10, 10, 10, 0.96);
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    padding: 2rem 0;
   }
 
   .navbar__link {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
   }
 }

@@ -7,13 +7,19 @@ const WHATSAPP_NUMBER = "50600000000";
 const CONTACT_EMAIL = "info@aduomobiliario.com";
 // ─────────────────────────────────────────
 
+//imagenes que se van a usar en el carrusel de productos destacados
+import productoMesa from "../assets/images/products/mesa.jpg";
+import productoSofas from "../assets/images/products/sofas.jpg";
+import productoMesaRectangular from "../assets/images/products/mesaRectangular.jpg";
+import productoSillaPiscina from "../assets/images/products/sillaPiscina.jpg";
+import productoPuerta from "../assets/images/products/puerta.jpg";
+
 const projects = [
   {
     id: 1,
     name: "SALA CONTEMPORÁNEA",
     category: "SALA",
-    image:
-      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80",
+    image: productoMesa,
     description:
       "Conjunto de sala diseñado para espacios modernos que buscan equilibrio entre funcionalidad y estética. Cada pieza fue concebida como parte de un sistema cohesivo, donde las proporciones y los acabados dialogan entre sí.",
     materials:
@@ -27,7 +33,7 @@ const projects = [
     id: 2,
     name: "COMEDOR MINIMALISTA",
     category: "COMEDOR",
-    image: null,
+    image: productoSofas,
     description:
       "Mesa de comedor de línea depurada, diseñada para reunir sin distracciones. La superficie en madera maciza contrasta con la base geométrica en metal, creando una pieza que es tanto funcional como escultural.",
     materials:
@@ -40,7 +46,7 @@ const projects = [
     id: 3,
     name: "DORMITORIO SERENO",
     category: "DORMITORIO",
-    image: null,
+    image: productoMesaRectangular,
     description:
       "Colección de dormitorio pensada para el descanso consciente. Materiales naturales y paleta neutra conforman un ambiente que invita a la calma sin sacrificar el carácter.",
     materials:
@@ -54,7 +60,7 @@ const projects = [
     id: 4,
     name: "ESTUDIO MODERNO",
     category: "ESTUDIO",
-    image: null,
+    image: productoSillaPiscina,
     description:
       "Solución de estudio para el profesional que no cede en estética. Escritorio con gestión de cables integrada y estantería modular que se adapta al espacio disponible.",
     materials: "MDF lacado en blanco mate, estructura en aluminio anodizado",
@@ -67,7 +73,7 @@ const projects = [
     id: 5,
     name: "SALA DE LECTURA",
     category: "SALA",
-    image: null,
+    image: productoPuerta,
     description:
       "Rincón de lectura con sillón de alto respaldo y biblioteca integrada. Diseñado para quien vive entre libros y necesita un espacio que lo refleje.",
     materials:
