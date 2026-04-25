@@ -206,11 +206,17 @@ export default function Home() {
               {products.map((product) => (
                 <div key={product.id} className="product-card">
                   <div className="product-card__img-wrap">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="product-card__img"
-                    />
+                    {/*
+                    revisar como hacer para que se vea la galeria desde el inicio
+                    */}
+
+                    <Link to="/gallery">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="product-card__img"
+                      />
+                    </Link>
                   </div>
                   <p className="product-card__name">{product.name}</p>
                 </div>
@@ -242,7 +248,10 @@ export default function Home() {
           <p className="cta-banner__sub">
             Diseñamos cada pieza a medida para tu proyecto.
           </p>
-          <button className="cta-banner__btn">CONTÁCTANOS</button>
+          {/*<button className="cta-banner__btn">CONTÁCTANOS</button>*/}
+          <Link to="/contact" className="cta-banner__btn">
+            CONTÁCTANOS
+          </Link>
         </div>
       </section>
     </main>
