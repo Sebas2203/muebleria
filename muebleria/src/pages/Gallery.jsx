@@ -3,7 +3,7 @@ import "./Gallery.css";
 
 // ─────────────────────────────────────────
 // DATOS DE CONTACTO — cambiá estos cuando los tengas
-const WHATSAPP_NUMBER = "50600000000";
+const WHATSAPP_NUMBER = "50671681098";
 const CONTACT_EMAIL = "info@aduomobiliario.com";
 // ─────────────────────────────────────────
 

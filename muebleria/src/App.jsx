@@ -10,10 +10,12 @@ import Contact from "./pages/Contact";
 
 //componentes
 import Navbar from "./components/Navbar/Navbar";
+import ScrollToTop from "./components/Scroll/ScrollToTop";
 
 function App() {
   return (
     <>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
