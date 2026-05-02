@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./Contact.css";
 
-import heroImg from "../assets/images/products/sofas.jpg";
+import heroImg from "../assets/images/sala/sillon-00.jpg";
 const HERO_IMAGE = heroImg;
 
 // ─────────────────────────────────────────────────────────────

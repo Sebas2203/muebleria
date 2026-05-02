@@ -3,30 +3,37 @@ import { Link, useLocation } from "react-router-dom";
 import "./Home.css";
 
 //imagenes que se van a usar en el hero
-import heroSillas from "../assets/images/heroSlides/sillas.jpg";
-import heroMesa from "../assets/images/heroSlides/mesita.jpg";
-import heroCama from "../assets/images/heroSlides/cama.jpg";
+import exterior02 from "../assets/images/exterior/exterior-02.jpg";
+import cuarto09 from "../assets/images/cuarto/cuarto-09.jpg";
+import sillon00 from "../assets/images/sala/sillon-00.jpg";
 
 //imagenes que se van a usar en el carrusel de productos destacados
-import productoMesa from "../assets/images/products/mesa.jpg";
-import productoSofas from "../assets/images/products/sofas.jpg";
-import productoMesaRectangular from "../assets/images/products/mesaRectangular.jpg";
-import productoSillaPiscina from "../assets/images/products/sillaPiscina.jpg";
-import productoPuerta from "../assets/images/products/puerta.jpg";
+import bano04 from "../assets/images/baño/bano-04.jpg";
+import cuarto12 from "../assets/images/cuarto/cuarto-12.jpg";
+import cafe from "../assets/images/otros/cafe.jpg";
+import mesa04 from "../assets/images/mesa/mesa-04.jpg";
+import exterior11 from "../assets/images/exterior/exterior-11.jpg";
 
 /*
   Precarga todas las imágenes apenas carga el módulo.
   Esto evita el flash negro al hacer scroll antes de que carguen.
 */
 const allImages = [
-  heroSillas,
-  heroMesa,
-  heroCama,
-  productoMesa,
-  productoSofas,
-  productoMesaRectangular,
-  productoSillaPiscina,
-  productoPuerta,
+  exterior02,
+  cuarto09,
+  sillon00,
+  exterior11,
+  bano04,
+  cuarto12,
+  cafe,
+  mesa04,
+  //heroMesa,
+  //heroCama,
+  //productoMesa,
+  //productoSofas,
+  //productoMesaRectangular,
+  //productoSillaPiscina,
+  //productoPuerta,
 ];
 allImages.forEach((src) => {
   const img = new Image();
@@ -36,30 +43,30 @@ allImages.forEach((src) => {
 const heroSlides = [
   {
     id: 1,
-    image: heroSillas,
+    image: exterior02,
     headline: "ARQUITECTURA EN CADA MUEBLE",
     subline: "DONDE EL DISEÑO SE CONVIERTE EN PIEZA.",
   },
   {
     id: 2,
-    image: heroMesa,
+    image: cuarto09,
     headline: "PIEZAS QUE TRANSFORMAN",
     subline: "ESPACIOS CON CARÁCTER Y PRECISIÓN.",
   },
   {
     id: 3,
-    image: heroCama,
+    image: sillon00,
     headline: "DISEÑO SIN COMPROMISO",
     subline: "CADA DETALLE TIENE UN PROPÓSITO.",
   },
 ];
 
 const products = [
-  { id: 1, name: "SOFÁ DE DISEÑO PERSONALIZADO", image: productoMesa },
-  { id: 2, name: "SOFÁ SECCIONAL MINIMALISTA", image: productoSofas },
-  { id: 3, name: "SOFÁ MODULAR CONTEMPORÁNEO", image: productoMesaRectangular },
-  { id: 4, name: "PIEZA CENTRAL PARA SALA", image: productoSillaPiscina },
-  { id: 5, name: "SILLÓN LOUNGE ARTESANAL", image: productoPuerta },
+  { id: 1, name: "SOFÁ DE DISEÑO PERSONALIZADO", image: exterior11 },
+  { id: 2, name: "SOFÁ SECCIONAL MINIMALISTA", image: cuarto12 },
+  { id: 3, name: "SOFÁ MODULAR CONTEMPORÁNEO", image: cafe },
+  { id: 4, name: "PIEZA CENTRAL PARA SALA", image: mesa04 },
+  { id: 5, name: "SILLÓN LOUNGE ARTESANAL", image: bano04 },
 ];
 
 export default function Home() {

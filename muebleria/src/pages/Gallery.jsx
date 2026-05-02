@@ -8,18 +8,18 @@ const CONTACT_EMAIL = "info@aduomobiliario.com";
 // ─────────────────────────────────────────
 
 //imagenes que se van a usar en el carrusel de productos destacados
-import productoMesa from "../assets/images/products/mesa.jpg";
-import productoSofas from "../assets/images/products/sofas.jpg";
-import productoMesaRectangular from "../assets/images/products/mesaRectangular.jpg";
-import productoSillaPiscina from "../assets/images/products/sillaPiscina.jpg";
-import productoPuerta from "../assets/images/products/puerta.jpg";
+// import productoMesa from "../assets/images/products/mesa.jpg";
+// import productoSofas from "../assets/images/products/sofas.jpg";
+// import productoMesaRectangular from "../assets/images/products/mesaRectangular.jpg";
+// import productoSillaPiscina from "../assets/images/products/sillaPiscina.jpg";
+// import productoPuerta from "../assets/images/products/puerta.jpg";
 
 const projects = [
   {
     id: 1,
     name: "SALA CONTEMPORÁNEA",
     category: "SALA",
-    image: productoMesa,
+    image: null,
     description:
       "Conjunto de sala diseñado para espacios modernos que buscan equilibrio entre funcionalidad y estética. Cada pieza fue concebida como parte de un sistema cohesivo, donde las proporciones y los acabados dialogan entre sí.",
     materials:
@@ -33,7 +33,7 @@ const projects = [
     id: 2,
     name: "COMEDOR MINIMALISTA",
     category: "COMEDOR",
-    image: productoSofas,
+    image: null,
     description:
       "Mesa de comedor de línea depurada, diseñada para reunir sin distracciones. La superficie en madera maciza contrasta con la base geométrica en metal, creando una pieza que es tanto funcional como escultural.",
     materials:
@@ -46,7 +46,7 @@ const projects = [
     id: 3,
     name: "DORMITORIO SERENO",
     category: "DORMITORIO",
-    image: productoMesaRectangular,
+    image: null,
     description:
       "Colección de dormitorio pensada para el descanso consciente. Materiales naturales y paleta neutra conforman un ambiente que invita a la calma sin sacrificar el carácter.",
     materials:
@@ -60,7 +60,7 @@ const projects = [
     id: 4,
     name: "ESTUDIO MODERNO",
     category: "ESTUDIO",
-    image: productoSillaPiscina,
+    image: null,
     description:
       "Solución de estudio para el profesional que no cede en estética. Escritorio con gestión de cables integrada y estantería modular que se adapta al espacio disponible.",
     materials: "MDF lacado en blanco mate, estructura en aluminio anodizado",
@@ -73,7 +73,7 @@ const projects = [
     id: 5,
     name: "SALA DE LECTURA",
     category: "SALA",
-    image: productoPuerta,
+    image: null,
     description:
       "Rincón de lectura con sillón de alto respaldo y biblioteca integrada. Diseñado para quien vive entre libros y necesita un espacio que lo refleje.",
     materials:
@@ -142,8 +142,9 @@ const categories = [
   "SALA",
   "COMEDOR",
   "DORMITORIO",
-  "ESTUDIO",
   "EXTERIOR",
+  "MESAS",
+  "BAÑO",
 ];
 
 export default function Gallery() {
