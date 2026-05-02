@@ -3,85 +3,78 @@ import { Link, useLocation } from "react-router-dom";
 import "./Home.css";
 
 //imagenes que se van a usar en el hero
-import heroSillas from "../assets/images/heroSlides/sillas.jpg";
-import heroMesa from "../assets/images/heroSlides/mesita.jpg";
-import heroCama from "../assets/images/heroSlides/cama.jpg";
+import exterior02 from "../assets/images/exterior/exterior-02.jpg";
+import cuarto09 from "../assets/images/cuarto/cuarto-09.jpg";
+import sillon00 from "../assets/images/sala/sillon-00.jpg";
 
 //imagenes que se van a usar en el carrusel de productos destacados
-import productoMesa from "../assets/images/products/mesa.jpg";
-import productoSofas from "../assets/images/products/sofas.jpg";
-import productoMesaRectangular from "../assets/images/products/mesaRectangular.jpg";
-import productoSillaPiscina from "../assets/images/products/sillaPiscina.jpg";
-import productoPuerta from "../assets/images/products/puerta.jpg";
+import bano04 from "../assets/images/baño/bano-04.jpg";
+import cuarto12 from "../assets/images/cuarto/cuarto-12.jpg";
+import cafe from "../assets/images/otros/cafe.jpg";
+import mesa04 from "../assets/images/mesa/mesa-04.jpg";
+import exterior11 from "../assets/images/exterior/exterior-11.jpg";
 
 /*
-  heroSlides:
-    es un arreglo de slides para el carrusel
-    cada slide tiene imagen, texto principal y texto secundario
+  Precarga todas las imágenes apenas carga el módulo.
+  Esto evita el flash negro al hacer scroll antes de que carguen.
 */
+const allImages = [
+  exterior02,
+  cuarto09,
+  sillon00,
+  exterior11,
+  bano04,
+  cuarto12,
+  cafe,
+  mesa04,
+  //heroMesa,
+  //heroCama,
+  //productoMesa,
+  //productoSofas,
+  //productoMesaRectangular,
+  //productoSillaPiscina,
+  //productoPuerta,
+];
+allImages.forEach((src) => {
+  const img = new Image();
+  img.src = src;
+});
+
 const heroSlides = [
   {
     id: 1,
-    image: heroSillas,
+    image: exterior02,
     headline: "ARQUITECTURA EN CADA MUEBLE",
     subline: "DONDE EL DISEÑO SE CONVIERTE EN PIEZA.",
   },
   {
     id: 2,
-    image: heroMesa,
+    image: cuarto09,
     headline: "PIEZAS QUE TRANSFORMAN",
     subline: "ESPACIOS CON CARÁCTER Y PRECISIÓN.",
   },
   {
     id: 3,
-    image: heroCama,
+    image: sillon00,
     headline: "DISEÑO SIN COMPROMISO",
     subline: "CADA DETALLE TIENE UN PROPÓSITO.",
   },
 ];
 
-/*
-  products:
-    lista de productos que se muestran en el carrusel
-*/
 const products = [
-  {
-    id: 1,
-    name: "SOFÁ DE DISEÑO PERSONALIZADO",
-    image: productoMesa,
-  },
-  {
-    id: 2,
-    name: "SOFÁ SECCIONAL MINIMALISTA",
-    image: productoSofas,
-  },
-  {
-    id: 3,
-    name: "SOFÁ MODULAR CONTEMPORÁNEO",
-    image: productoMesaRectangular,
-  },
-  {
-    id: 4,
-    name: "PIEZA CENTRAL PARA SALA",
-    image: productoSillaPiscina,
-  },
-  {
-    id: 5,
-    name: "SILLÓN LOUNGE ARTESANAL",
-    image: productoPuerta,
-  },
+  { id: 1, name: "SOFÁ DE DISEÑO PERSONALIZADO", image: exterior11 },
+  { id: 2, name: "SOFÁ SECCIONAL MINIMALISTA", image: cuarto12 },
+  { id: 3, name: "SOFÁ MODULAR CONTEMPORÁNEO", image: cafe },
+  { id: 4, name: "PIEZA CENTRAL PARA SALA", image: mesa04 },
+  { id: 5, name: "SILLÓN LOUNGE ARTESANAL", image: bano04 },
 ];
 
 export default function Home() {
-  /*
-    currentSlide: indice del slide actual en el hero
-    carouselIndex: posicion actual del carrusel de productos
-  */
-
   const [currentSlide, setCurrentSlide] = useState(0);
   const [carouselIndex, setCarouselIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
-  //Auto-play del hero: cada 5 segundos cambia al siguiente slide. Cuando llega al final, vuelve a inciar
+  // Auto-play del hero cada 5 segundos
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
@@ -89,60 +82,50 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
+  // Detecta cambios de tamaño de pantalla
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      setCarouselIndex(0);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   /*
-    Configuracion del carrusel:
-    visibleCount: cuantos productos se ven al mismo tiempo
-    maxIndex: limite para no pasarse del carrusel
+    En móvil: 2 productos visibles → desplazamiento de 50% por paso
+    En desktop: 4 productos visibles → desplazamiento de 25% por paso
   */
-  const visibleCount = 4;
+  const visibleCount = isMobile ? 2 : 4;
+  const itemWidth = isMobile ? 50 : 25;
   const maxIndex = products.length - visibleCount;
 
-  /*
-    Avanzar carrusel:
-      - suma 1 al indice
-      - pero nunca pasa de maxIndex
-  */
-  const nextProduct = () => {
+  const nextProduct = () =>
     setCarouselIndex((prev) => Math.min(prev + 1, maxIndex));
-  };
-
-  /*
-    Retroceder carrusel:
-      - resta 1 al indice
-      - pero nunca baja de 0
-  */
-  const prevProduct = () => {
-    setCarouselIndex((prev) => Math.max(prev - 1, 0));
-  };
+  const prevProduct = () => setCarouselIndex((prev) => Math.max(prev - 1, 0));
 
   return (
     <main className="home">
       {/* ================= HERO ================= */}
       <section className="hero">
-        {/*
-          Renderiza todos los slides.
-          Solo el slide activo recibe la clase "--active"
-          (esto normalmente se usa para mostrar/ocultar con CSS)
-        */}
         {heroSlides.map((slide, i) => (
           <div
             key={slide.id}
-            className={`hero__slide ${
-              i === currentSlide ? "hero__slide--active" : ""
-            }`}
+            className={`hero__slide ${i === currentSlide ? "hero__slide--active" : ""}`}
           >
-            <img src={slide.image} alt="" className="hero__img" />
+            <img
+              src={slide.image}
+              alt=""
+              className="hero__img"
+              loading="eager"
+            />
             <div className="hero__overlay" />
           </div>
         ))}
 
-        {/*
-          Contenido del slide actual
-        */}
         <div className="hero__content">
           <p className="hero__headline">{heroSlides[currentSlide].headline}</p>
           <p className="hero__subline">{heroSlides[currentSlide].subline}</p>
-          {/*<button className="hero__cta">COMENZAR PROYECTO</button>*/}
           <Link
             to="/gallery"
             className={`hero__cta ${location.pathname === "/gallery" ? "navbar__link--active" : ""}`}
@@ -151,18 +134,11 @@ export default function Home() {
           </Link>
         </div>
 
-        {/*
-          Dots de navegación:
-          - indican qué slide está activo
-          - permiten cambiar manualmente de slide
-        */}
         <div className="hero__dots">
           {heroSlides.map((_, i) => (
             <button
               key={i}
-              className={`hero__dot ${
-                i === currentSlide ? "hero__dot--active" : ""
-              }`}
+              className={`hero__dot ${i === currentSlide ? "hero__dot--active" : ""}`}
               onClick={() => setCurrentSlide(i)}
             />
           ))}
@@ -179,10 +155,6 @@ export default function Home() {
         </div>
 
         <div className="featured__carousel-wrapper">
-          {/*
-            Flecha izquierda:
-            solo aparece si no estamos en el inicio
-          */}
           {carouselIndex > 0 && (
             <button
               className="featured__arrow featured__arrow--prev"
@@ -193,28 +165,21 @@ export default function Home() {
           )}
 
           <div className="featured__track">
-            {/*
-              Contenedor que se mueve horizontalmente
-              usando transform: translateX
-            */}
             <div
               className="featured__list"
               style={{
-                transform: `translateX(-${carouselIndex * 25}%)`,
+                transform: `translateX(-${carouselIndex * itemWidth}%)`,
               }}
             >
               {products.map((product) => (
                 <div key={product.id} className="product-card">
                   <div className="product-card__img-wrap">
-                    {/*
-                    revisar como hacer para que se vea la galeria desde el inicio
-                    */}
-
                     <Link to="/gallery">
                       <img
                         src={product.image}
                         alt={product.name}
                         className="product-card__img"
+                        loading="eager"
                       />
                     </Link>
                   </div>
@@ -224,10 +189,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/*
-            Flecha derecha:
-            solo aparece si aún hay más productos por mostrar
-          */}
           {carouselIndex < maxIndex && (
             <button
               className="featured__arrow featured__arrow--next"
@@ -248,7 +209,6 @@ export default function Home() {
           <p className="cta-banner__sub">
             Diseñamos cada pieza a medida para tu proyecto.
           </p>
-          {/*<button className="cta-banner__btn">CONTÁCTANOS</button>*/}
           <Link to="/contact" className="cta-banner__btn">
             CONTÁCTANOS
           </Link>

@@ -122,9 +122,17 @@
 }
 
 /* ── Featured ── */
+
+/* 
+  background: #ffffff asegura que la sección sea blanca
+  incluso antes de que carguen las imágenes del carrusel,
+  evitando el flash negro al hacer scroll
+*/
 .featured {
   padding: 5rem 4rem;
   background: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 .featured__header {
@@ -178,8 +186,10 @@
   width: 100%;
   aspect-ratio: 1 / 0.75;
   overflow: hidden;
-  background: #f5f5f5;
+  /* color de fondo mientras carga la imagen */
+  background: #efefef;
   margin-bottom: 0.9rem;
+  min-height: 120px;
 }
 
 .product-card__img {
@@ -187,6 +197,8 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
+  /* evita que la imagen se muestre en blanco antes de cargar */
+  background: #efefef;
 }
 
 .product-card:hover .product-card__img {
@@ -231,7 +243,6 @@
 .featured__arrow--prev {
   left: -18px;
 }
-
 .featured__arrow--next {
   right: -18px;
 }
@@ -241,6 +252,8 @@
   background: #0a0a0a;
   padding: 5rem 4rem;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-banner__title {
