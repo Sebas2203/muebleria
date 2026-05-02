@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import "./Contact.css";
+import "../styles/Contact.css";
 
 import heroImg from "../assets/images/sala/sillon-00.jpg";
 const HERO_IMAGE = heroImg;

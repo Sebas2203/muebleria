@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Gallery.css";
+import "../styles/Gallery.css";
 
 // ─────────────────────────────────────────
 // DATOS DE CONTACTO — cambiá estos cuando los tengas

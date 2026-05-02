@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Home.css";
+import "../styles/Home.css";
 
 //imagenes que se van a usar en el hero
 import exterior02 from "../assets/images/exterior/exterior-02.jpg";
