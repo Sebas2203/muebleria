@@ -4,13 +4,7 @@ import "../styles/Contact.css";
 import heroImg from "../assets/images/sala/sillon-00.jpg";
 const HERO_IMAGE = heroImg;
 
-// ─────────────────────────────────────────────────────────────
-// CONFIGURACIÓN WEB3FORMS
-// 1. Entrá a https://web3forms.com
-// 2. Poné tu correo y te mandan la Access Key al instante
-// 3. Pegala aquí abajo
-// ─────────────────────────────────────────────────────────────
-const WEB3FORMS_KEY = "TU_ACCESS_KEY";
+const CONTACT_PHP_URL = "https://tudominio.com/send.php";
 
 const WHATSAPP_NUMBER = "50671681098";
 const CONTACT_EMAIL = "info@aduomobiliario.com";
@@ -22,7 +16,7 @@ export default function Contact() {
     from_email: "",
     message: "",
   });
-  const [status, setStatus] = useState("idle"); // "idle" | "sending" | "success" | "error"
+  const [status, setStatus] = useState("idle");
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -39,15 +33,13 @@ export default function Contact() {
     setStatus("sending");
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(CONTACT_PHP_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
           name: form.from_name,
           email: form.from_email,
           message: form.message,
-          subject: `Nuevo mensaje de contacto — ${form.from_name}`,
         }),
       });
 
@@ -60,7 +52,7 @@ export default function Contact() {
         setStatus("error");
       }
     } catch (err) {
-      console.error("Web3Forms error:", err);
+      console.error("Error al enviar:", err);
       setStatus("error");
     }
   };
@@ -76,7 +68,6 @@ export default function Contact() {
 
   return (
     <main className="contact">
-      {/* ── Panel izquierdo: imagen + info ── */}
       <div className="contact-left">
         <img src={HERO_IMAGE} alt="" className="contact-left__img" />
         <div className="contact-left__overlay" />
@@ -101,15 +92,14 @@ export default function Contact() {
               <p className="contact-data__label">UBICACIÓN</p>
               <p className="contact-data__value">San José, Costa Rica</p>
             </div>
+
             <div className="contact-data">
               <p className="contact-data__label">CORREO</p>
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="contact-data__value contact-data__link"
-              >
-                {CONTACT_EMAIL}
-              </a>
+              href={"mailto:" + CONTACT_EMAIL}
+              className="contact-data__value contact-data__link"
+              <a>{CONTACT_EMAIL}</a>
             </div>
+
             <div className="contact-data">
               <p className="contact-data__label">WHATSAPP</p>
               <button
@@ -134,7 +124,6 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* ── Panel derecho: formulario ── */}
       <div className="contact-right">
         <p className="contact-form__eyebrow">ENVÍANOS UN MENSAJE</p>
         <h2 className="contact-form__heading">
@@ -194,7 +183,10 @@ export default function Contact() {
 
           <button
             type="submit"
-            className={`contact-form__submit ${status === "sending" ? "contact-form__submit--sending" : ""}`}
+            className={
+              "contact-form__submit" +
+              (status === "sending" ? " contact-form__submit--sending" : "")
+            }
             disabled={status === "sending"}
           >
             {status === "sending" ? "ENVIANDO..." : "ENVIAR MENSAJE"}
