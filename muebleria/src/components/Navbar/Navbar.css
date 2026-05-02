@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap");
 
+/* ── Navbar base ── */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 200;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,9 +31,10 @@
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
-  z-index: 101;
+  z-index: 201;
 }
 
+/* Links desktop */
 .navbar__links {
   list-style: none;
   display: flex;
@@ -67,24 +69,21 @@
 .navbar__link:hover {
   color: #ffffff;
 }
-
 .navbar__link:hover::after,
 .navbar__link--active::after {
   width: 100%;
 }
-
 .navbar__link--active {
   color: #ffffff;
 }
 
-/* BOTÓN HAMBURGUESA */
-
+/* ── Hamburguesa ── */
 .navbar__toggle {
   display: none;
   background: transparent;
   border: none;
   cursor: pointer;
-  z-index: 101;
+  z-index: 201;
   padding: 0;
 }
 
@@ -97,46 +96,124 @@
   transition: 0.3s;
 }
 
-/* MOBILE */
+/* ── Menú fullscreen móvil ── */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 
+  /* Estado inicial: invisible y fuera de pantalla */
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+.mobile-menu--open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* Nombre de la empresa arriba */
+.mobile-menu__brand {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Links centrados */
+.mobile-menu__links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu__link {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  letter-spacing: 0.28em;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu__link:hover,
+.mobile-menu__link--active {
+  color: #ffffff;
+}
+
+/* Botón cerrar abajo */
+.mobile-menu__close {
+  position: absolute;
+  bottom: 2.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.4);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.mobile-menu__close:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .navbar {
     padding: 1.25rem 1.5rem;
   }
 
   .navbar__brand {
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
   }
 
   .navbar__toggle {
     display: block;
   }
 
+  /* Oculta los links del navbar en móvil — se usan los del menú fullscreen */
   .navbar__links {
     display: none;
   }
+}
 
-  .navbar__links--open {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-
-    background: rgba(10, 10, 10, 0.96);
-
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-
-    padding: 2rem 0;
-  }
-
-  .navbar__link {
-    font-size: 0.75rem;
+/* En desktop el menú fullscreen nunca se muestra */
+@media (min-width: 769px) {
+  .mobile-menu {
+    display: none;
   }
 }

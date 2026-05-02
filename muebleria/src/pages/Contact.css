@@ -139,7 +139,9 @@
   padding: 0.75rem 1.25rem;
   cursor: pointer;
   width: fit-content;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .contact-wa-btn:hover {
@@ -248,7 +250,9 @@
   cursor: pointer;
   align-self: flex-start;
   margin-top: 0.25rem;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 .contact-form__submit:hover {
@@ -269,8 +273,12 @@
   margin: 0;
 }
 
-.contact-form__feedback--success { color: #2a7a4b; }
-.contact-form__feedback--error   { color: #b94a4a; }
+.contact-form__feedback--success {
+  color: #2a7a4b;
+}
+.contact-form__feedback--error {
+  color: #b94a4a;
+}
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
@@ -281,15 +289,27 @@
   }
 
   .contact-left {
-    height: 50vh;
+    height: auto;
+    min-height: 420px;
   }
 
   .contact-left__content {
-    padding: 2rem;
+    position: relative;
+    padding: 5rem 1.5rem 2.5rem;
+    gap: 2rem;
+    min-height: 420px;
+  }
+
+  .contact-title {
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
   }
 
   .contact-right {
     padding: 2.5rem 1.5rem;
     justify-content: flex-start;
+  }
+
+  .contact-form__heading {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
   }
 }

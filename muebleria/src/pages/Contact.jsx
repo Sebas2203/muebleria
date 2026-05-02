@@ -1,19 +1,16 @@
 import React, { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 import "./Contact.css";
 
 import heroImg from "../assets/images/products/sofas.jpg";
 const HERO_IMAGE = heroImg;
 
 // ─────────────────────────────────────────────────────────────
-// CONFIGURACIÓN EMAILJS
-// 1. emailjs.com → Email Services → Add New Service → Service ID
-// 2. Email Templates → Create Template → usá {{from_name}} {{from_email}} {{message}} → Template ID
-// 3. Account → General → Public Key
+// CONFIGURACIÓN WEB3FORMS
+// 1. Entrá a https://web3forms.com
+// 2. Poné tu correo y te mandan la Access Key al instante
+// 3. Pegala aquí abajo
 // ─────────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID = "TU_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "TU_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY = "TU_PUBLIC_KEY";
+const WEB3FORMS_KEY = "TU_ACCESS_KEY";
 
 const WHATSAPP_NUMBER = "50671681098";
 const CONTACT_EMAIL = "info@aduomobiliario.com";
@@ -25,7 +22,7 @@ export default function Contact() {
     from_email: "",
     message: "",
   });
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState("idle"); // "idle" | "sending" | "success" | "error"
 
   const handleChange = (e) =>
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -38,18 +35,32 @@ export default function Contact() {
       !form.message.trim()
     )
       return;
+
     setStatus("sending");
+
     try {
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        EMAILJS_PUBLIC_KEY,
-      );
-      setStatus("success");
-      setForm({ from_name: "", from_email: "", message: "" });
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: form.from_name,
+          email: form.from_email,
+          message: form.message,
+          subject: `Nuevo mensaje de contacto — ${form.from_name}`,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("success");
+        setForm({ from_name: "", from_email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
     } catch (err) {
-      console.error("EmailJS error:", err);
+      console.error("Web3Forms error:", err);
       setStatus("error");
     }
   };
