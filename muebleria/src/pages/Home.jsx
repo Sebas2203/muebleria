@@ -3,31 +3,15 @@ import { Link, useLocation } from "react-router-dom";
 import "../styles/Home.css";
 
 //imagenes que se van a usar en el hero
-import exterior02 from "../assets/images/exterior/exterior-02.jpg";
-import cuarto09 from "../assets/images/cuarto/cuarto-09.jpg";
-import sillon00 from "../assets/images/sala/sillon-00.jpg";
-
-//imagenes que se van a usar en el carrusel de productos destacados
-import bano04 from "../assets/images/baño/bano-04.jpg";
-import cuarto12 from "../assets/images/cuarto/cuarto-12.jpg";
-import cafe from "../assets/images/otros/cafe.jpg";
-import mesa04 from "../assets/images/mesa/mesa-04.jpg";
-import exterior11 from "../assets/images/exterior/exterior-11.jpg";
+import exterior02 from "../assets/images/exterior/exterior-02.webp";
+import cuarto09 from "../assets/images/cuarto/cuarto-09.webp";
+import sillon00 from "../assets/images/sala/sillon-00.webp";
 
 /*
   Precarga todas las imágenes apenas carga el módulo.
   Esto evita el flash negro al hacer scroll antes de que carguen.
 */
-const allImages = [
-  exterior02,
-  cuarto09,
-  sillon00,
-  exterior11,
-  bano04,
-  cuarto12,
-  cafe,
-  mesa04,
-];
+const allImages = [exterior02, cuarto09, sillon00];
 allImages.forEach((src) => {
   const img = new Image();
   img.src = src;
@@ -55,11 +39,36 @@ const heroSlides = [
 ];
 
 const products = [
-  { id: 1, name: "SOFÁ DE DISEÑO PERSONALIZADO", image: exterior11 },
-  { id: 2, name: "SOFÁ SECCIONAL MINIMALISTA", image: cuarto12 },
-  { id: 3, name: "SOFÁ MODULAR CONTEMPORÁNEO", image: cafe },
-  { id: 4, name: "PIEZA CENTRAL PARA SALA", image: mesa04 },
-  { id: 5, name: "SILLÓN LOUNGE ARTESANAL", image: bano04 },
+  {
+    id: 1,
+    name: "CAMASTRO DE EXTERIOR EN MADERA",
+    image:
+      "https://res.cloudinary.com/dui38bv9y/image/upload/q_auto,f_auto,w_800/v1777697449/exterior-11_ltibv6.webp",
+  },
+  {
+    id: 2,
+    name: "CAMA DE MADERA",
+    image:
+      "https://res.cloudinary.com/dui38bv9y/image/upload/q_auto,f_auto,w_800/v1777697441/cuarto-12_zva4fv.webp",
+  },
+  {
+    id: 3,
+    name: "CHORREADOR DE CAFÉ",
+    image:
+      "https://res.cloudinary.com/dui38bv9y/image/upload/q_auto,f_auto,w_800/v1777697460/cafe_pepo2o.webp",
+  },
+  {
+    id: 4,
+    name: "MESA PARA COMEDOR DE MADERA",
+    image:
+      "https://res.cloudinary.com/dui38bv9y/image/upload/q_auto,f_auto,w_800/v1777697458/mesa-15_witauh.webp",
+  },
+  {
+    id: 5,
+    name: "MUEBLE DE BAÑO EN MADERA",
+    image:
+      "https://res.cloudinary.com/dui38bv9y/image/upload/q_auto,f_auto,w_800/v1777697429/bano-05_wsjkvk.webp",
+  },
 ];
 
 export default function Home() {

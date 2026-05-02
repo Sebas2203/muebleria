@@ -47,13 +47,13 @@ export default function About() {
       <section className="about-hero">
         <div className="about-hero__overlay" />
         <img
-          src="https://images.unsplash.com/photo-1538688423619-a81d3f23454b?w=1600&q=80"
+          src="https://res.cloudinary.com/dui38bv9y/image/upload/q_auto,f_auto,w_800/v1777697463/puerta-04_u9lmjz.webp"
           alt=""
           className="about-hero__img"
         />
         <div className="about-hero__content">
           <p className="about-hero__label">SOBRE NOSOTROS</p>
-          <h1 className="about-hero__title">ADUO MOBILIARIO</h1>
+          <h1 className="about-hero__title">CREATIVOS MUEBLES FURNITURE</h1>
         </div>
       </section>
 
@@ -63,20 +63,22 @@ export default function About() {
           <div className="about-story__text">
             <p className="about-section__label">NUESTRA HISTORIA</p>
             <p className="about-story__body">
-              Aduo Mobiliario nació de una convicción simple: los espacios donde
-              vivimos merecen piezas que los eleven. Fundada en Costa Rica,
-              nuestra empresa une tradición artesanal con sensibilidad
-              contemporánea para crear mobiliario que trasciende lo funcional.
+              En Creativos Muebles Furniture diseñamos y fabricamos mobiliario
+              cuidando cada detalle, desde la idea inicial hasta el producto
+              final. Creamos piezas funcionales y estéticas, pensadas para durar
+              y adaptarse a cada espacio. Además, ofrecemos asesoría en diseño
+              de interiores y acompañamiento personalizado durante todo el
+              proceso, desde la conceptualización hasta la instalación.
             </p>
             <p className="about-story__body">
-              Cada proyecto es una colaboración. Escuchamos, diseñamos y
-              construimos pensando en el espacio que habitarás, no en una
-              producción en serie.
+              Cada proyecto es una colaboración. Escuchamos tus ideas, diseñamos
+              y fabricamos pensando en tu espacio y estilo, creando muebles
+              únicos en lugar de producción en serie.
             </p>
           </div>
           <div className="about-story__img-wrap">
             <img
-              src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=800&q=80"
+              src="https://res.cloudinary.com/dui38bv9y/image/upload/q_auto,f_auto,w_800/v1777697459/mesa-17_qqrljh.webp"
               alt="Taller Aduo"
               className="about-story__img"
             />
@@ -101,6 +103,8 @@ export default function About() {
       </section>
 
       {/* Equipo */}
+
+      {/*
       <section className="about-team">
         <p className="about-section__label">NUESTRO EQUIPO</p>
         <div className="about-team__grid">
@@ -119,6 +123,7 @@ export default function About() {
           ))}
         </div>
       </section>
+      */}
 
       {/* Contacto */}
       <section className="about-contact">

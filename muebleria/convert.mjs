@@ -21,7 +21,7 @@ for (const folder of folders) {
   for (const file of jpgs) {
     const input = join(dir, file);
     const output = join(dir, file.replace(".jpg", ".webp"));
-    await sharp(input).webp({ quality: 60 }).toFile(output);
+    await sharp(input).webp({ quality: 75 }).toFile(output);
     console.log(`✓ ${folder}/${file}`);
   }
 }
