@@ -27,13 +27,6 @@ const allImages = [
   cuarto12,
   cafe,
   mesa04,
-  //heroMesa,
-  //heroCama,
-  //productoMesa,
-  //productoSofas,
-  //productoMesaRectangular,
-  //productoSillaPiscina,
-  //productoPuerta,
 ];
 allImages.forEach((src) => {
   const img = new Image();

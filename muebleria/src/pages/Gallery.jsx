@@ -78,7 +78,7 @@ export default function Gallery() {
 
       {/* GRID */}
       <section className="gallery-grid">
-        {filtered.map((project) => (
+        {filtered.map((project, index) => (
           <div
             key={project.id}
             className="gallery-item"
@@ -88,6 +88,10 @@ export default function Gallery() {
               src={project.image}
               alt={project.name}
               className="gallery-item__img"
+              // Las primeras 9 imágenes cargan eager (las visibles al entrar)
+              // el resto lazy (solo cuando el usuario hace scroll)
+              loading={index < 9 ? "eager" : "lazy"}
+              decoding="async"
             />
             <div className="gallery-item__overlay">
               <p className="gallery-item__category">{project.category}</p>
@@ -128,6 +132,8 @@ export default function Gallery() {
                 src={lightbox.image}
                 alt={lightbox.name}
                 className="lightbox__img"
+                loading="eager"
+                decoding="async"
               />
               <p className="lightbox__counter">
                 {currentIndex + 1} / {filtered.length}
