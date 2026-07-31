@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap");
 
 /* ── Hero ── */
 .hero {
@@ -57,7 +58,7 @@
 }
 
 .hero__headline {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Sora", "Cormorant Garamond", serif;
   font-weight: 300;
   font-size: 1.05rem;
   letter-spacing: 0.18em;
@@ -67,7 +68,7 @@
 }
 
 .hero__subline {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Sora", "Cormorant Garamond", serif;
   font-weight: 300;
   font-size: 1.05rem;
   letter-spacing: 0.12em;
@@ -77,7 +78,7 @@
 }
 
 .hero__cta {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
@@ -141,7 +142,7 @@
 }
 
 .featured__label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.7rem;
   letter-spacing: 0.22em;
@@ -151,7 +152,7 @@
 }
 
 .featured__sub {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
@@ -206,7 +207,7 @@
 }
 
 .product-card__name {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.6rem;
   letter-spacing: 0.15em;
@@ -257,7 +258,7 @@
 }
 
 .cta-banner__title {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Sora", "Cormorant Garamond", serif;
   font-weight: 300;
   font-size: 1.3rem;
   letter-spacing: 0.2em;
@@ -267,7 +268,7 @@
 }
 
 .cta-banner__sub {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
@@ -276,7 +277,7 @@
 }
 
 .cta-banner__btn {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
