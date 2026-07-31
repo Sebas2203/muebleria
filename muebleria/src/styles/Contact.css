@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap");
-
+/* @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap");
 /* ── Layout principal: ocupa toda la pantalla sin scroll ── */
 .contact {
   display: grid;
@@ -52,7 +52,7 @@
 }
 
 .contact-label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.6rem;
   letter-spacing: 0.32em;
@@ -62,7 +62,7 @@
 }
 
 .contact-title {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Sora", "Cormorant Garamond", serif;
   font-weight: 300;
   font-size: clamp(2.2rem, 4.5vw, 4rem);
   letter-spacing: 0.12em;
@@ -73,7 +73,7 @@
 }
 
 .contact-sub {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.82rem;
   letter-spacing: 0.1em;
@@ -90,7 +90,7 @@
 }
 
 .contact-data__label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.52rem;
   letter-spacing: 0.28em;
@@ -100,7 +100,7 @@
 }
 
 .contact-data__value {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.85rem;
   letter-spacing: 0.06em;
@@ -128,7 +128,7 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.58rem;
   letter-spacing: 0.2em;
@@ -170,7 +170,7 @@
 }
 
 .contact-form__eyebrow {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.55rem;
   letter-spacing: 0.3em;
@@ -180,7 +180,7 @@
 }
 
 .contact-form__heading {
-  font-family: "Cormorant Garamond", serif;
+  font-family: "Sora", "Cormorant Garamond", serif;
   font-weight: 300;
   font-size: clamp(2rem, 3.5vw, 3rem);
   letter-spacing: 0.06em;
@@ -202,7 +202,7 @@
 }
 
 .contact-form__label {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.52rem;
   letter-spacing: 0.25em;
@@ -212,7 +212,7 @@
 
 .contact-form__input,
 .contact-form__textarea {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
@@ -238,7 +238,7 @@
 }
 
 .contact-form__submit {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 0.62rem;
   letter-spacing: 0.22em;
@@ -266,7 +266,7 @@
 }
 
 .contact-form__feedback {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Sora", "Montserrat", sans-serif;
   font-weight: 300;
   font-size: 0.68rem;
   letter-spacing: 0.06em;
